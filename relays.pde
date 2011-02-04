@@ -1,14 +1,11 @@
 
-#include <Potentiometer.h>
-
-
 const int relay1 =  2; 
 const int relay2 =  3;
 const int relay3 =  4;
 
 int sensorPin = A5;
 int sensorValue = 0;  // variable to store the value coming from the sensor
-Potentiometer potentiometer = Potentiometer(2); //a Potentiometer at analog in 2
+
 
 int mode = 0;	// for incoming serial data
 
@@ -26,7 +23,7 @@ void setup() {
 }
 
 void loop(){
-  Serial.print("potentiometer.getValue() ");
+
 
   if (Serial.available() > 0) {
     // read the incoming byte:
@@ -59,81 +56,119 @@ void loop(){
     digitalWrite(relay1, HIGH); 
     digitalWrite(relay2, HIGH); 
     digitalWrite(relay3, HIGH); 
-    delay(50);
+    delay(sensorValue);
     digitalWrite(relay1, LOW); 
     digitalWrite(relay2, LOW); 
     digitalWrite(relay3, LOW); 
-    delay(50);
+    delay(sensorValue);
   }
   if (mode == 2){
     digitalWrite(relay1, HIGH); 
     digitalWrite(relay2, LOW); 
     digitalWrite(relay3, LOW); 
-    delay(50);
+    delay(sensorValue);
     digitalWrite(relay1, LOW); 
     digitalWrite(relay2, HIGH); 
     digitalWrite(relay3, LOW); 
-    delay(50);
+    delay(sensorValue);
     digitalWrite(relay1, LOW); 
     digitalWrite(relay2, LOW); 
     digitalWrite(relay3, HIGH); 
-    delay(50);
+    delay(sensorValue);
   }
   if (mode == 3){
     digitalWrite(relay1, HIGH); 
     digitalWrite(relay2, LOW); 
     digitalWrite(relay3, LOW); 
-    delay(50);
+    delay(sensorValue);
     digitalWrite(relay1, LOW); 
     digitalWrite(relay2, HIGH); 
     digitalWrite(relay3, LOW); 
-    delay(50);
+    delay(sensorValue);
     digitalWrite(relay1, LOW); 
     digitalWrite(relay2, LOW); 
     digitalWrite(relay3, HIGH); 
-    delay(50);
-    delay(50);
+    delay(sensorValue);
+
     digitalWrite(relay1, LOW); 
     digitalWrite(relay2, LOW); 
     digitalWrite(relay3, HIGH); 
-    delay(50);
+    delay(sensorValue);
     digitalWrite(relay1, LOW); 
     digitalWrite(relay2, HIGH); 
     digitalWrite(relay3, LOW); 
-    delay(50);
+    delay(sensorValue);
     digitalWrite(relay1, HIGH); 
     digitalWrite(relay2, LOW); 
     digitalWrite(relay3, LOW); 
   }
   if (mode == 4){
-    random1 = random(0, 4);
+    random1 = random(0, 10);
     Serial.println(random1);
 
     if (random1 == 0){
       digitalWrite(relay1, LOW); 
       digitalWrite(relay2, LOW); 
       digitalWrite(relay3, LOW);  
-      delay(100);
+      delay(sensorValue);
     }
-    
+     
     if (random1 == 1){
       digitalWrite(relay1, HIGH); 
       digitalWrite(relay2, LOW); 
       digitalWrite(relay3, LOW);  
-      delay(100);
+      delay(sensorValue);
     }
     if (random1 == 2){
       digitalWrite(relay1, LOW); 
       digitalWrite(relay2, HIGH); 
       digitalWrite(relay3, LOW);  
-      delay(100);
+      delay(sensorValue);
     }
     if (random1 == 3){
       digitalWrite(relay1, LOW); 
       digitalWrite(relay2, LOW); 
       digitalWrite(relay3, HIGH);  
-      delay(100);
+      delay(sensorValue);
     }
+    if (random1 == 4){
+      digitalWrite(relay1, LOW); 
+      digitalWrite(relay2, LOW); 
+      digitalWrite(relay3, LOW);  
+      delay(sensorValue);
+    }
+     if (random1 == 5){
+      digitalWrite(relay1, LOW); 
+      digitalWrite(relay2, HIGH); 
+      digitalWrite(relay3, HIGH);  
+      delay(sensorValue);
+    }
+     if (random1 == 6){
+      digitalWrite(relay1, HIGH); 
+      digitalWrite(relay2, LOW); 
+      digitalWrite(relay3, HIGH);  
+      delay(sensorValue);
+    }
+     if (random1 == 7){
+      digitalWrite(relay1, HIGH); 
+      digitalWrite(relay2, HIGH); 
+      digitalWrite(relay3, LOW);  
+      delay(sensorValue);
+    }
+      if (random1 == 8){
+      digitalWrite(relay1, HIGH); 
+      digitalWrite(relay2, HIGH); 
+      digitalWrite(relay3, HIGH);  
+      delay(sensorValue);
+    }
+    
+       if (random1 == 9){
+      digitalWrite(relay1, LOW); 
+      digitalWrite(relay2, LOW); 
+      digitalWrite(relay3, LOW);  
+      delay(sensorValue);
+    }
+    
 
   } 
 
